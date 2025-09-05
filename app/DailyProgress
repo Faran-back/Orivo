@@ -1,0 +1,22 @@
+Day 1
+
+... Pages ...
+
+I learned how to make routes with Inertia 
+Inertia::render('Example');
+
+I learned how to iterate over a loop in Vue.js
+v-for="example of examples" v-text="example"
+
+... Inertia Links ...
+
+I learned how to make an three page SPA using Link component
+Import { Link } from 'interiajs/vue3'
+export default{
+    components: { Link },
+}
+
+Then just Use it.
+<Link href="#">Example</Link>
+
+... Progress Indicators ...
