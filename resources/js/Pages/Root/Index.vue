@@ -1,15 +1,9 @@
 <template>
-    <div>
-        Home Page
-    </div>
+  <RootLayout>
+    <h1>Home</h1>
+  </RootLayout>
 </template>
 
-<script>
-    export default {
-        
-    }
+<script setup>
+import RootLayout from '@/Layouts/RootLayout.vue'
 </script>
-
-<style lang="scss" scoped>
-
-</style>
