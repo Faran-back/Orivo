@@ -12,10 +12,17 @@
             </header>
         </div>
     </section>
+
+        <TotalBalanceBox
+            :accounts="[]"
+            :totalBanks="1"
+            :totalCurrentBalance="1240.35"
+/>
   </RootLayout>
 </template>
 
 <script setup>
     import RootLayout from '@/Layouts/RootLayout.vue'
     import HeaderBox from '@/Components/HeaderBox.vue'
+    import TotalBalanceBox from '@/Components/TotalBalanceBox.vue'
 </script>
