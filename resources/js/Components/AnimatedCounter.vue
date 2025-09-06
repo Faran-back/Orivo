@@ -1,16 +1,15 @@
 <script setup>
-import { Vue3Countup } from 'vue3-countup'
+import CountUp from 'vue-countup-v3'
 
 const props = defineProps({
   amount: [Number, String]
 })
 
-const numericAmount = Number(props.amount)
 </script>
 
 <template>
-  <Vue3Countup
-    :end-val="numericAmount"
+  <count-up
+    :end-val="amount"
     :duration="1"
     :options="{ decimalPlaces: 2, prefix: '$' }"
   />

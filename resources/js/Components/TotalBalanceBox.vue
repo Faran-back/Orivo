@@ -1,5 +1,6 @@
 <script setup>
-    import {formatAmount} from '@/utils.js'
+    // import {formatAmount} from '@/utils.js'
+    import AnimatedCounter from './AnimatedCounter.vue';
 
     defineProps({
         accounts: Array,
@@ -24,10 +25,9 @@
                     Total Current Balance
                 </p>
                 <p class="total-balance-amount flex-center gap-2">
-                    <!-- <AnimatedCounter 
+                    <AnimatedCounter 
                         :amount="totalCurrentBalance"
-                    /> -->
-                {{ formatAmount(totalCurrentBalance) }}
+                    />
                 </p>    
             </div>
         </div>
