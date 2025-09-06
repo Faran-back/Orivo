@@ -25,7 +25,7 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 inter: "var(--font-inter)",
-                "ibm-plex-serif": "var(--font-ibm-plex-serif)",
+                'ibm-plex-serif': ['"IBM Plex Serif"', 'serif'],
             },
             colors: {
                 fill: {

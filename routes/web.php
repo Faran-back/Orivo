@@ -4,21 +4,17 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-
-Route::get('/', function () {
-    return Inertia::render('Home');
+Route::get('/', function(){
+    return Inertia::render('Root/Index');
 });
 
-Route::get('/users', function(){
-    sleep(2);
-    return Inertia::render('Users');
+Route::get('/sign-in', function(){
+    return Inertia::render('Auth/SignIn/Index');
 });
 
-Route::get('/settings', function(){
-    return Inertia::render('Settings');
+Route::get('/sign-up', function(){
+    return Inertia::render('Auth/SignUp/Index');
 });
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
