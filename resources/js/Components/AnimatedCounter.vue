@@ -8,9 +8,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <count-up
-    :end-val="amount"
-    :duration="1"
-    :options="{ decimalPlaces: 2, prefix: '$' }"
-  />
+  <div class="w-full">
+    <count-up
+      :end-val="amount"
+      :duration="1"
+      :options="{ decimalPlaces: 2, prefix: '$' }"
+    />
+  </div>
 </template>

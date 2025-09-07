@@ -16,7 +16,7 @@
         <TotalBalanceBox
             :accounts="[]"
             :totalBanks="1"
-            :totalCurrentBalance="1240.35"
+            :totalCurrentBalance="1250.35"
 />
   </RootLayout>
 </template>
