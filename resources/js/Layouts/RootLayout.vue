@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex h-screen w-full font-inter">
     <Sidebar />
     <main class="flex-1 p-6">
       <slot />

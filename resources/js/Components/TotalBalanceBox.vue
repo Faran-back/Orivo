@@ -1,13 +1,12 @@
 <script setup>
-    // import {formatAmount} from '@/utils.js'
     import AnimatedCounter from './AnimatedCounter.vue';
     import DoughnutChart from './DoughnutChart.vue';
 
-    defineProps({
-        accounts: Array,
-        totalBanks: Number,
-        totalCurrentBalance: Number
-    })
+defineProps({
+    accounts: Array,
+    totalBanks: Number,
+    totalCurrentBalance: Number
+})
 
 </script>
 
@@ -15,7 +14,7 @@
     <section class="total-balance">
         <div class="total-balance-chart">
             <!-- Total Balance Chart Placeholder -->
-             <DoughnutChart />
+            <DoughnutChart />
         </div>
 
         <div class="flex flex-col gap-6">
@@ -27,10 +26,8 @@
                     Total Current Balance
                 </p>
                 <p class="total-balance-amount flex-center gap-2">
-                    <AnimatedCounter 
-                        :amount="totalCurrentBalance"
-                    />
-                </p>    
+                    <AnimatedCounter :amount="totalCurrentBalance" />
+                </p>
             </div>
         </div>
     </section>
