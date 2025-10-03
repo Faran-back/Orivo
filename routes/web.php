@@ -1,12 +1,19 @@
 <?php
 
+use App\Http\Controllers\MyBanks\MyBanksController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionHistory\TransactionHistoryController;
+use App\Http\Controllers\TransferFunds\TransferFundsController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function(){
     return Inertia::render('Root/Index');
 });
+
+Route::resource('/my-banks', MyBanksController::class);
+Route::resource('/transaction-history', TransactionHistoryController::class);
+Route::resource('/payment-transfer', TransferFundsController::class);
 
 Route::get('/sign-in', function(){
     return Inertia::render('Auth/SignIn/Index');

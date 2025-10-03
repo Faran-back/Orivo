@@ -1,6 +1,6 @@
 <script setup >
     import { Link } from '@inertiajs/vue3'
-import BankCard from './BankCard.vue';
+    import BankCard from './BankCard.vue';
 
     defineProps({
         user: Object,

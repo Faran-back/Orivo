@@ -1,6 +1,6 @@
 <script setup>
-import { Link, usePage } from '@inertiajs/vue3'
-import { sidebarLinks } from '@/constants.js'
+  import { Link, usePage } from '@inertiajs/vue3'
+  import { sidebarLinks } from '@/constants.js'
 
 const page = usePage()
 const pathName = page.url

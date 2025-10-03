@@ -1,3 +1,18 @@
+<script setup>
+
+import { Link } from '@inertiajs/vue3'
+import { formatAmount } from '@/utils.js'
+
+defineProps({
+    account: Object,
+    userName: Array,
+    showBalance: {
+        type: Boolean,
+        default: true
+    }
+})
+</script>
+
 <template>
     <div class="flex flex-col">
         <Link href="/" class="bank-card">
@@ -43,17 +58,4 @@
     </div>
 </template>
 
-<script setup>
 
-import { Link } from '@inertiajs/vue3'
-import { formatAmount } from '@/utils.js'
-
-defineProps({
-    account: Object,
-    userName: Array,
-    showBalance: {
-        type: Boolean,
-        default: true
-    }
-})
-</script>
