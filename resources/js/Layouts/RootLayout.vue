@@ -1,6 +1,6 @@
 <script setup>
   import Sidebar from '@/Components/Sidebar.vue'
-import MobileNav from '../Components/MobileNav.vue';
+  import MobileNav from '../Components/MobileNav.vue';
 
   const loggedIn = {
     firstName: 'John',

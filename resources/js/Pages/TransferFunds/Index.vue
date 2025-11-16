@@ -1,10 +1,13 @@
-<script setup lang="ts">
-
+<script setup>
+    import RootLayout from '../../Layouts/RootLayout.vue';
 </script>
 
 
 <template>
-    <div>
-        Transfer Funds Page
-    </div>
+
+    <RootLayout>
+        <div>
+            Transfer Funds Page
+        </div>
+    </RootLayout>
 </template>

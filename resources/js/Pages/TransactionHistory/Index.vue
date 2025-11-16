@@ -1,10 +1,14 @@
-<script setup lang="ts">
-
+<script setup>
+import RootLayout from '../../Layouts/RootLayout.vue';
 </script>
 
 
 <template>
-    <div>
+    <RootLayout>
+        <div>
+            Transaction History
+        </div>
+    </RootLayout>
 
-    </div>
+        
 </template>
