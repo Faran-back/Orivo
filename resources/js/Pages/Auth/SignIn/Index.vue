@@ -1,15 +1,10 @@
-<template>
-    <div>
-        Sign-in Page
-    </div>
-</template>
-
-<script>
-    export default {
-        
-    }
+<script setup>
+import AuthForm from '../../../Components/AuthForm.vue';
 </script>
 
-<style lang="scss" scoped>
 
-</style>
+    <template>
+        <section class="flex-center w-full max-sm:px-6">
+            <AuthForm type="sign-in" email="email" password="password" />
+        </section>
+    </template>

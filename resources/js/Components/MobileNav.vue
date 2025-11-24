@@ -46,7 +46,7 @@ defineProps({
                         :class="{ 'bg-bank-gradient text-white': isActive(item.route) }">
                     <img :src="item.imgURL" alt="nav-icon" class="w-6 h-6"
                         :class="{ 'brightness-[3]': isActive(item.route) }" />
-                    <p :class="['text-16 font-semibold', { 'text-white': isActive(item.route) }]">
+                    <p :class="['text-[16px] font-semibold', { 'text-white': isActive(item.route) }]">
                         {{ item.label }}
                     </p>
                     </Link>
