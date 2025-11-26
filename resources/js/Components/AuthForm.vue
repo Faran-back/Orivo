@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import InputField from '@/Components/Form/InputField.vue'
 import { z } from 'zod'
+import { Loader2 } from "lucide-vue-next";
+import { Link } from "@inertiajs/vue3";
 
 // Props
 defineProps({
@@ -16,12 +18,14 @@ const form = ref({
   password: ''
 })
 
+const setIsLoading = ref(false)
+
 const errors = ref({})
 
 // Zod validation schema
 const schema = z.object({
   email: z.string().email('Invalid email'),
-  password: z.string().min(6, 'Minimum 6 characters')
+  password: z.string().min(8, 'Minimum 8 characters')
 })
 
 // Submit handler
@@ -32,7 +36,9 @@ const submitForm = () => {
     errors.value = result.error.flatten().fieldErrors
   } else {
     errors.value = {}
+    setIsLoading.value = true
     console.log('Form submitted', form.value)
+    setIsLoading.value = false
   }
 }
 
@@ -98,18 +104,49 @@ const user = ref(null)
           label="Password"
           name="password"
           type="password"
-          placeholder="**********"
+          placeholder="Enter your password"
           :error="errors.password?.[0]"
         />
 
         <!-- Submit Button -->
         <button
           type="submit"
-          class="form-btn px-2 py-2"
+          class="form-btn px-2 py-2 flex items-center justify-center"
+          :disabled="setIsLoading"
         >
-          Submit
+          <div v-if="setIsLoading" class="flex items-center gap-2">
+            <Loader2 size="20" class="animate-spin" />
+            <span>Loading...</span>
+          </div>
+
+
+          <div v-else>
+            <div v-if="type === 'sign-in'">
+              Sign In
+            </div>
+
+            <div v-else>
+              Sign Up
+            </div>
+          </div>
         </button>
       </form>
     </div>
+
+    <footer class="flex justify-center gap-1">
+      <div v-if="type === 'sign-in'" class="text-14 font-normal text-gray-600">
+        Don't have an account? &nbsp; 
+        <span class="form-link">
+          <Link href="/sign-up"> Sign up </Link>
+        </span>
+      </div>
+
+      <div v-else class="text-14 font-normal text-gray-600">
+        Already have an account?  &nbsp;
+        <span class="form-link">
+          <Link href="/sign-in"> Sign in </Link>
+        </span>
+      </div>
+    </footer>
   </section>
 </template>
