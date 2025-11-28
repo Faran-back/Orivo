@@ -5,6 +5,6 @@
 
     <template>
         <section class="flex-center w-full max-sm:px-6">
-            <AuthForm type="signup" />
+            <AuthForm type="sign-up"  />
         </section>
     </template>

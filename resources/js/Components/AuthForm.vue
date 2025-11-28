@@ -15,7 +15,15 @@ defineProps({
 // Form state
 const form = ref({
   email: '',
-  password: ''
+  password: '',
+first_name: '',
+last_name: '', 
+address: '',
+city: '',
+state: '',
+ssn: '',
+dateOfBirth: '',
+  
 })
 
 const setIsLoading = ref(false)
@@ -25,7 +33,16 @@ const errors = ref({})
 // Zod validation schema
 const schema = z.object({
   email: z.string().email('Invalid email'),
-  password: z.string().min(8, 'Minimum 8 characters')
+  password: z.string().min(8),
+  first_name: z.string().min(3),  
+  last_name: z.string().min(3),
+  address: z.string().max(50),
+  city: z.string().min(3).max(10),
+  state: z.string().min(2).max(2),
+  postalCode: z.string().min(3).max(6),
+  ssn: z.string().max(4),
+  dateOfBirth: z.string().max(8),
+
 })
 
 // Submit handler
@@ -87,26 +104,104 @@ const user = ref(null)
 
     <!-- ELSE → SHOW AUTH FORM -->
     <div v-else>
-      <form @submit.prevent="submitForm" class="flex flex-col gap-4">
+      <form @submit.prevent="submitForm" class="flex flex-col gap-6">
 
-        <!-- Email -->
-        <InputField
-          v-model="form.email"
-          label="Email"
-          name="email"
-          placeholder="contact@horizon.pro"
-          :error="errors.email?.[0]"
-        />
+        <template v-if="type === 'sign-up'" >
+        <!-- First Name + Last Name -->
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+             <InputField 
+               v-model="form.first_name"
+               name="firstName"
+               label="First Name"
+               placeholder="John"
+               width="w-full"
+               :error="errors.first_name?.[0]"
+             />
 
-        <!-- Password -->
-        <InputField
-          v-model="form.password"
-          label="Password"
-          name="password"
-          type="password"
-          placeholder="Enter your password"
-          :error="errors.password?.[0]"
-        />
+             <InputField 
+               v-model="form.last_name"
+               name="lastName"
+               label="Last Name"
+               placeholder="Doe"
+               width="w-full"
+               :error="errors.last_name?.[0]"
+             />
+           </div>
+
+            <InputField 
+               v-model="form.address"
+               name="address"
+               label="Address"
+               placeholder="Enter your specific address"
+               :error="errors.state?.[0]"
+             />
+
+               <InputField 
+               v-model="form.city"
+               name="city"
+               label="City"
+               placeholder="Enter your city"
+               :error="errors.state?.[0]"
+             />
+
+           <!-- State + Postal Code -->
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+             <InputField 
+               v-model="form.state"
+               name="state"
+               label="State"
+               placeholder="NY"
+               width="w-full"
+               :error="errors.state?.[0]"
+             />
+
+             <InputField 
+               v-model="form.postalCode"
+               name="postalCode"
+               label="Postal Code"
+               placeholder="11101"
+               width="w-full"
+               :error="errors.postalCode?.[0]"
+             />
+           </div>
+
+           <!-- Date of Birth + SSN -->
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+             <InputField 
+               v-model="form.dateOfBirth"
+               name="dateOfBirth"
+               label="Date of Birth"
+               placeholder="yyyy-mm-dd"
+               width="w-full"
+               :error="errors.dateOfBirth?.[0]"
+             />
+
+             <InputField 
+               v-model="form.ssn"
+               name="ssn"
+               label="SSN"
+               placeholder="1234"
+               width="w-full"
+               :error="errors.ssn?.[0]"
+             />
+           </div>
+        </template>
+          
+          <InputField 
+             v-model="form.email"
+             name="email"
+             label="Email"
+             placeholder="Horizon@support.net"
+             :error="errors.email?.[0]"
+           />
+
+            <InputField 
+             v-model="form.password"
+             name="password"
+             label="Password"
+             placeholder="Enter your password"
+             :error="errors.password?.[0]"
+           />
 
         <!-- Submit Button -->
         <button
